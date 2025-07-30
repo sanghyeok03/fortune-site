@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>오늘의 운세</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
+</head>
+<body>
+  <div class="container">
+    <h1>오늘의 운세</h1>
+    <form id="fortune-form">
+      <label for="name">이름</label>
+      <input
+        type="text"
+        id="name"
+        name="name"
+        placeholder="이름"
+        autocomplete="name"
+        required
+      />
+
+      <label for="birthdate">생년월일</label>
+      <input
+        type="date"
+        id="birthdate"
+        name="birthdate"
+        autocomplete="bday"
+        required
+      />
+
+      <label for="gender">성별</label>
+      <select id="gender" name="gender" autocomplete="sex" required>
+        <option value="">성별 선택</option>
+        <option value="male">남성</option>
+        <option value="female">여성</option>
+      </select>
+
+      <label for="birthtime">태어난 시간</label>
+      <input
+        type="time"
+        id="birthtime"
+        name="birthtime"
+        placeholder="태어난 시간"
+        autocomplete="off"
+      />
+
+      <label for="mbti">MBTI <small style="color: gray;">(모르면 작성하지 않아도 됩니다)</small></label>
+      <input
+        type="text"
+        id="mbti"
+        name="mbti"
+        placeholder="MBTI (선택)"
+        autocomplete="off"
+      />
+
+      <label for="category">운세 카테고리</label>
+      <select id="category" name="category" required>
+        <option value="">운세 카테고리 선택</option>
+        <option value="love">애정</option>
+        <option value="compatibility">궁합</option>
+        <option value="social">대인관계</option>
+        <option value="career">직업</option>
+        <option value="money">금전</option>
+      </select>
+
+      <button type="submit">운세 보기</button>
+    </form>
+
+    <div id="result"></div>
+
+    <section class="donation">
+      <h3>복채를 보내주실 분은</h3>
+      <p>IBK기업은행 97305899201012</p>
+    </section>
+
+    <section class="comments">
+      <h3>댓글</h3>
+      <div id="comment-list"></div>
+      <textarea
+        id="new-comment"
+        placeholder="댓글을 입력하세요..."
+        aria-label="댓글 입력란"
+      ></textarea>
+      <button onclick="submitComment()">댓글 작성</button>
+    </section>
+
+    <div class="share">
+      <button id="kakao-share-btn">카카오톡으로 공유하기</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
